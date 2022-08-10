@@ -1,12 +1,12 @@
 {
-  "name": "@web3-react/gnosis-safe",
+  "name": "@makerdao-dux/gnosis-safe",
   "keywords": [
     "web3-react",
     "gnosis-safe"
   ],
   "author": "Noah Zinsmeister <noahwz@gmail.com>",
   "license": "GPL-3.0-or-later",
-  "repository": "github:Uniswap/web3-react",
+  "repository": "makerdao-dux/web3-react",
   "publishConfig": {
     "access": "public"
   },
