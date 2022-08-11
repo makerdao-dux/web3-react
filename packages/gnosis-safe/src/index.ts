@@ -64,10 +64,13 @@ export class GnosisSafe extends Connector {
     await (this.eagerConnection = import('@gnosis.pm/safe-apps-sdk').then(async (m) => {
       this.sdk = new m.default(this.options)
 
-      const safe = await Promise.race([
-        this.sdk.safe.getInfo(),
-        new Promise<undefined>((resolve) => setTimeout(resolve, 500)),
-      ])
+      // note: this race results in a undefined value for `safe` if the page has a long rendering time
+      // const safe = await Promise.race([
+      //   this.sdk.safe.getInfo(),
+      //   new Promise<undefined>((resolve) => setTimeout(resolve, 500)),
+      // ])
+      const safe = await this.sdk.safe.getInfo();
+
 
       if (safe) {
         const SafeAppProvider = await SafeAppProviderPromise
